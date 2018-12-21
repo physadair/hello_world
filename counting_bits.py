@@ -9,6 +9,13 @@ class Solution(object):
         
         return output
 
+    def countBits_v2(self, num):
+        result = [0]
+        for i in range(1, num+1):
+            result.append(i&1 + result[i>>1])
+
+        return result
+
 if __name__ == "__main__":
     sol = Solution()
     print(sol.countBits(50))
