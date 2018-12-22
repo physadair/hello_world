@@ -48,22 +48,16 @@ class Solution(object):
             l2 = l2.next
         
         v = v1 + v2
-        output = []
+        output = ListNode(0)
+        currNode = output
         
-        output.append(ListNode(v%10))
+        cuttNode.next = ListNode(v%10)
         v = v//10
         while v:
-            output.append(ListNode(v%10))
+            currNode.next = ListNode(v%10)
             v = v//10
         
-        for i, j in zip(output, output[1:]):
-            i.next = j
-        output = output[0]
-        
-        return output
-
-
-
+        return output.next
 
 if __name__ == "__main__":
     l = [ListNode(2), ListNode(4), ListNode(3)]
@@ -83,7 +77,7 @@ if __name__ == "__main__":
         output = output.next
     print()
     
-
+    V
 
 
 
