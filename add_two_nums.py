@@ -39,6 +39,36 @@ class Solution(object):
         output = output[0]
 
         return output
+    
+    def addTwoNumbers(self, l1, l2):
+
+        v1 = 0
+        i = 0
+        while l1:
+            v1 += l1.val*(10**i)
+            i += 1
+            l1 = l1.next
+        
+        v2 = 0
+        j = 0
+        while l2:
+            v2 += l2.val*(10**j)
+            j += 1
+            l2 = l2.next
+        
+        v = v1 + v2
+        output = []
+        while v:
+            output.append(ListNode(v%10))
+            v = v//10
+        
+        for i, j in zip(output, output[1:]):
+            i.next = j
+        output = output[0]
+        
+        return output
+
+
 
 
 if __name__ == "__main__":
