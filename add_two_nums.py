@@ -8,39 +8,30 @@ class ListNode:
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         carry = 0
-        output = []
-        while l1 or l2:
+        output = ListNode(0)
+        currNode = output
+        while l1 or l2 or carry: 
             if l1: 
                 v1 = l1.val
+                l1 = l1.next
             else:
                 v1 = 0
             
             if l2: 
                 v2 = l2.val
+                l2 = l2.next
             else:
                 v2 = 0
             
             v = (v1+v2) + carry
-            
-            if v//10:
-                carry = 1
-            else:
-                carry = 0
+            carry = 1 if v//10 else 0
 
-            output.append(ListNode(v%10))
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
+            currNode.next = ListNode(v%10)
+            currNode = currNode.next
         
-        if carry:    
-            output.append(ListNode(carry))
-
-        for i, j in zip(output, output[1:]):
-            i.next = j
-        output = output[0]
-
-        return output
+        return output.next
     
-    def addTwoNumbers(self, l1, l2):
+    def addTwoNumbers_v2(self, l1, l2):
 
         v1 = 0
         i = 0
@@ -58,6 +49,9 @@ class Solution(object):
         
         v = v1 + v2
         output = []
+        
+        output.append(ListNode(v%10))
+        v = v//10
         while v:
             output.append(ListNode(v%10))
             v = v//10
