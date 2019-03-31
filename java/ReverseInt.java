@@ -15,7 +15,7 @@ public class Solution
         return  (int) r;
     }
     
-	public static int reverse_v1(int x)
+    public static int reverse_v1(int x)
     {
         int r = 0;
         while (true)
