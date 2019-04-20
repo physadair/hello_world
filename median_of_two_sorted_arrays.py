@@ -111,10 +111,8 @@ class Solution(object):
 
         if nums1[i-1]>nums2[j-1]:
             return self.getkth(nums1[:], nums2[j:], k-j)
-        elif nums1[i-1]<nums2[j-1]:
+        elif nums1[i-1]<=nums2[j-1]:
             return self.getkth(nums1[i:], nums2[:], k-i)
-        else: 
-            return nums1[i-1]
 
     def findMedianSortedArrays_v5(self, nums1, nums2):
         l = (len(nums1) + len(nums2) + 1)//2 
