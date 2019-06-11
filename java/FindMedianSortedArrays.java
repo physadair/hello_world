@@ -1,6 +1,8 @@
+import java.util.Arrays;
+
 public class FindMedianSortedArrays
 {
-    public static double findMedianSortedArrays(int[] nums1, int[] nums2) 
+    public static double findMedianSortedArrays_v1(int[] nums1, int[] nums2) 
     {
         if (nums1.length > nums2.length) {
             int[] tmp = nums1;
@@ -68,7 +70,7 @@ public class FindMedianSortedArrays
         int[] array1 = {};    
         int[] array2 = {5};    
 
-        double median = findMedianSortedArrays(array1, array2);
+        double median = findMedianSortedArrays_v2(array1, array2);
         System.out.println(median);
 
 
